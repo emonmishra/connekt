@@ -19,7 +19,7 @@ abstract class GCMPayload
 abstract class PayloadEnvelope
 
 case class GCMPNPayload(registration_ids: Seq[String],
-                        @JsonInclude(JsonInclude.Include.NON_NULL) delay_while_idle: Option[Boolean],
+                        @JsonInclude(JsonInclude.Include.NON_NULL) priority: Option[String],
                         data: Any,
                         @JsonInclude(JsonInclude.Include.NON_NULL) time_to_live: Option[Long] = None,
                         @JsonInclude(JsonInclude.Include.NON_NULL) dry_run: Option[Boolean] = None) extends GCMPayload
