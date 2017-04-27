@@ -76,6 +76,10 @@ libraryDependencies ++= Seq(
   "mysql" % "mysql-connector-java" % "5.1.37",
   "com.h2database" % "h2" % "1.4.187" % Test,
   "org.apache.velocity" % "velocity" % "1.7",
+  "org.apache.velocity" % "velocity-tools" % "2.0" excludeAll(
+    ExclusionRule(organization = "commons-beanutils"),
+    ExclusionRule(organization = "commons-logging")
+  ),
   "org.codehaus.groovy" % "groovy-all" % "2.4.5",
   "com.roundeights" %% "hasher" % "1.2.0",
   "com.couchbase.client" % "java-client" % "2.1.3",

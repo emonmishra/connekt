@@ -19,6 +19,7 @@ import com.flipkart.connekt.commons.factories.{ConnektLogger, LogFile}
 import com.flipkart.connekt.commons.utils.VelocityUtils
 import org.apache.velocity.app.Velocity
 import org.apache.velocity.context.Context
+import org.apache.velocity.tools.generic.MathTool
 
 import scala.util.{Failure, Success, Try}
 
@@ -33,6 +34,7 @@ class VelocityFabric(dataVtl: String) extends EngineFabric {
   def fabricate(id: String, context: Context, vtlFabric: String, errorTag: String): Try[String] = {
     try {
       val w = new StringWriter()
+      context.put("math", new MathTool())
       Velocity.evaluate(context, w, errorTag, vtlFabric)
       Success(w.toString)
     } catch {
